@@ -19,6 +19,7 @@ services:
         - traefik.http.routers.financeiro.rule=Host(`financeiro.filipeivopereira.com`)
         - traefik.http.routers.financeiro.entrypoints=websecure
         - traefik.http.routers.financeiro.tls=true
+        - traefik.http.routers.financeiro.tls.certresolver=letsencryptresolver
         - traefik.http.services.financeiro.loadbalancer.server.port=3000
       restart_policy: { condition: on-failure }
     healthcheck:
