@@ -17,6 +17,8 @@ backup/
 *.tar
 *.tar.gz
 *.zip
+!supabase/migrations/
+!supabase/migrations/*.sql
 
 # Node/Next build output
 app/node_modules/
