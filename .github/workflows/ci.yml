@@ -1,6 +1,13 @@
 name: CI
-on: [pull_request, push]
-permissions: { contents: read, packages: write }
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  packages: write
 jobs:
   verify:
     runs-on: ubuntu-latest
