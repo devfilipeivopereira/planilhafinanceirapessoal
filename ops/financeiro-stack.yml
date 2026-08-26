@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  financeiro_app:
+    image: ghcr.io/devfilipeivopereira/planilhafinanceirapessoal:${FINANCEIRO_IMAGE_TAG:?set an immutable SHA tag}
+    networks: [FilipeNet]
+    secrets: [financeiro_service_role_v1]
+    environment:
+      NODE_ENV: production
+      APP_URL: https://financeiro.filipeivopereira.com
+      NEXT_PUBLIC_SUPABASE_URL: https://supabase.filipeivopereira.com
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY:?required}
+      SUPABASE_SERVICE_ROLE_FILE: /run/secrets/financeiro_service_role_v1
+    deploy:
+      replicas: 1
+      update_config: { order: start-first, failure_action: rollback }
+      resources: { limits: { memory: 768M } }
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.financeiro.rule=Host(`financeiro.filipeivopereira.com`)
+        - traefik.http.routers.financeiro.entrypoints=websecure
+        - traefik.http.routers.financeiro.tls=true
+        - traefik.http.services.financeiro.loadbalancer.server.port=3000
+      restart_policy: { condition: on-failure }
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+networks:
+  FilipeNet: { external: true }
+secrets:
+  financeiro_service_role_v1: { external: true }

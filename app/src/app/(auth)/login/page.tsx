@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function Login() { return <main className="welcome"><p className="eyebrow">ACESSO SEGURO</p><h1>Entre na sua vida financeira.</h1><p className="lede">O acesso é liberado somente para membros convidados da família.</p><form><input aria-label="E-mail" type="email" placeholder="voce@email.com" /><button className="button" type="submit">Continuar</button></form><Link href="/recuperar-senha">Esqueci minha senha</Link></main>; }

@@ -1,0 +1,1 @@
+export default function Settings() { return <><header className="section-head"><div><h1>Categorias</h1><p>Organize receitas e despesas em categorias e subcategorias.</p></div></header><section className="empty"><strong>Comece pelas categorias.</strong><p>Exemplos: Moradia → Aluguel; Alimentação → Mercado; Receita → Salário.</p></section></>; }

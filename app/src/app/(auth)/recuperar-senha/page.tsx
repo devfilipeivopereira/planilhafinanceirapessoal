@@ -1,0 +1,1 @@
+export default function Recovery() { return <main className="welcome"><p className="eyebrow">RECUPERAR ACESSO</p><h1>Vamos ajudar você a entrar.</h1><p className="lede">Informe seu e-mail para receber as instruções de recuperação.</p></main>; }

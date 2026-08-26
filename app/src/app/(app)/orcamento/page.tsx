@@ -1,0 +1,1 @@
+export default function Budget() { return <><header className="section-head"><div><h1>Orçamento</h1><p>Defina um limite mensal para cada categoria.</p></div></header><section className="empty"><strong>Orçamento ainda não configurado.</strong><p>Crie categorias para montar seu planejamento mensal.</p></section></>; }
