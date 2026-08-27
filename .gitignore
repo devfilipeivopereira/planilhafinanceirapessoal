@@ -29,5 +29,6 @@ app/test-results/
 
 # Local tooling
 .worktrees/
+.playwright-cli/
 .DS_Store
 Thumbs.db
