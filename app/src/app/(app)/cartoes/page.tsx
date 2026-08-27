@@ -1,1 +1,2 @@
-export default function Cards() { return <><header className="section-head"><div><h1>Cartões</h1><p>Controle limite, fechamento e vencimento.</p></div></header><section className="empty"><strong>Nenhum cartão ainda.</strong><p>Cadastre um cartão após criar a conta de pagamento.</p></section></>; }
+import { CardsPanel } from "@/features/finance/cards-panel";
+export default function Cards() { return <><header className="section-head"><div><p className="eyebrow">CRÉDITO</p><h1>Cartões</h1><p>Controle limite, fechamento e vencimento.</p></div></header><CardsPanel /></>; }
