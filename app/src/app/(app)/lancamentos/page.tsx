@@ -1,1 +1,2 @@
-export default function Transactions() { return <><header className="section-head"><div><h1>Lançamentos</h1><p>Receitas, despesas, transferências e recorrências.</p></div></header><section className="empty"><strong>Nenhum lançamento neste mês.</strong><p>Registre manualmente a primeira movimentação depois de cadastrar contas e categorias.</p></section></>; }
+import { TransactionsPanel } from "@/features/finance/transactions-panel";
+export default function Transactions() { return <><header className="section-head"><div><p className="eyebrow">OPERAÇÃO</p><h1>Lançamentos</h1><p>Receitas, despesas e visão clara do seu mês.</p></div></header><TransactionsPanel /></>; }
